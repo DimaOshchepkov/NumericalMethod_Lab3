@@ -8,7 +8,12 @@ namespace Lab3
 {
     class Program
     {
-
+        static void PrintVector(double[] vec)
+        {
+            foreach (var v in vec)
+                Console.Write($"{v} ");
+            Console.WriteLine();
+        }
 
         [STAThread] //????
         static void Main(string[] args)
@@ -22,12 +27,16 @@ namespace Lab3
             else
                 reader = new ReaderFromConsole();
 
-            
-            
-
             double[,] matrix = reader.Read();
-            ISolver solver = new SolverSimpleIter();
+
+            Console.WriteLine("Введите точность");
+            double eps = double.Parse(Console.ReadLine());
+            
+            ISolver solver = new Solver(new SimpleIeration());
             double[] solve = solver.GetSolve(matrix, 1e-6);
+
+            PrintVector(solve);
+
             Console.ReadKey();
         }
     }

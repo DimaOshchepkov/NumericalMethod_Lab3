@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    class SolverSimpleIter : ISolver
+    class Solver : ISolver
     {
+        public Solver(IIterationMethod iterMethod)
+        {
+            iterationMethod = iterMethod;
+        }
         double[] ISolver.GetSolve(double[,] matrix, double eps)
         {
             if (matrix.GetLength(0) != matrix.GetLength(1) - 1)
@@ -29,32 +33,16 @@ namespace Lab3
                 foreach (var metric in metricFactory.ExistMetric)
                     Console.WriteLine(metric.ToString());
 
-                return new double[0];
+                return null;
             }
             else
-            {
-                double[] prevIter = new double[matrix.GetLength(0)];
-                double[] currIter = new double[matrix.GetLength(0)];
-                int countIter = 0;
-                do
-                {
-                    countIter++;
-                    Array.Copy(currIter, prevIter, currIter.Length);
-                    for (int i = 0; i < currIter.Length; i++)
-                    {
-                        for (int j = 0; j < currIter.Length; j++)
-                            currIter[i] += mapping[i, j] * prevIter[j];
-                        currIter[i] += mapping[i, currIter.Length];
-                    }
-                }
-                while (metric.GetDistance(prevIter, currIter) > (1 - alpha) / alpha * eps);
-                return currIter;
-            }   
+                return iterationMethod.GetSolve(mapping, metric, alpha, eps); 
         }
 
         MetricFactory metricFactory = new MetricFactory();
         IMetric metric;
         GetterAlpha getterAlpha;
         GetterMapping getterMapping = new GetterMapping();
+        IIterationMethod iterationMethod;
     }
 }
