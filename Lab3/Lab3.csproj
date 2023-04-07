@@ -44,22 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IIterationMethod.cs" />
+    <Compile Include="Solver\SupportClasses\IterationMethods\IIterationMethod.cs" />
     <Compile Include="MatrixReaders\IReader.cs" />
     <Compile Include="Metrics\ChebyshevMetric.cs" />
     <Compile Include="Metrics\EuclidianMetric.cs" />
     <Compile Include="MatrixReaders\ReaderFromConsole.cs" />
     <Compile Include="MatrixReaders\ReaderFromFile.cs" />
-    <Compile Include="SimpleIeration.cs" />
-    <Compile Include="Solvers\SupportClasses\GetterAlpha.cs" />
-    <Compile Include="Solvers\SupportClasses\GetterMapping.cs" />
+    <Compile Include="Solver\SupportClasses\IterationMethods\SimpleIeration.cs" />
+    <Compile Include="Solver\SupportClasses\GetterAlpha.cs" />
+    <Compile Include="Solver\SupportClasses\GetterMapping.cs" />
     <Compile Include="Metrics\IMetric.cs" />
-    <Compile Include="Solvers\ISolver.cs" />
+    <Compile Include="Solver\ISolver.cs" />
     <Compile Include="Metrics\ManhattanMetric.cs" />
     <Compile Include="Metrics\MetricFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Solvers\Solver.cs" />
+    <Compile Include="Solver\Solver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

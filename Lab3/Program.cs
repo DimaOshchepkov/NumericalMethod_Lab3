@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace Lab3
             double[,] matrix = reader.Read();
 
             Console.WriteLine("Введите точность");
-            double eps = double.Parse(Console.ReadLine());
+            double eps = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             
             ISolver solver = new Solver(new SimpleIeration());
             double[] solve = solver.GetSolve(matrix, 1e-6);
