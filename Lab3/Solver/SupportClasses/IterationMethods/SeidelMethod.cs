@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    internal class SimpleIeration : IIterationMethod
+    internal class SeidelMethod : IIterationMethod
     {
         double[] IIterationMethod.GetSolve(double[,] mapping, IMetric metric, double alpha, double eps)
         {
@@ -21,11 +21,11 @@ namespace Lab3
                 {
                     currIter[i] = mapping[i, currIter.Length];
                     for (int j = 0; j < currIter.Length; j++)
-                        currIter[i] += mapping[i, j] * prevIter[j];
+                        currIter[i] += mapping[i, j] * currIter[j];
                 }
             }
             while (metric.GetDistance(prevIter, currIter) > (1 - alpha) / alpha * eps);
-            Console.WriteLine($"Количество итераций метода простых итераций {countIter}");
+            Console.WriteLine($"Количество итераций метода Зейделя {countIter}");
             return currIter;
         }
     }

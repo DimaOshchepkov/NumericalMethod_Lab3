@@ -20,7 +20,7 @@ namespace Lab3
             {
                 string[] row = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < size + 1; j++)
-                    matrix[i, j] = Convert.ToDouble(row[j], CultureInfo.InvariantCulture);
+                    matrix[i, j] = Convert.ToDouble(row[j]);
             }
 
             return matrix;

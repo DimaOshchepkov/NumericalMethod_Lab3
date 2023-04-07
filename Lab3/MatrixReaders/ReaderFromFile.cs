@@ -34,7 +34,7 @@ namespace Lab3
                     {
                         string[] row = rows[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                         for (int j = 0; j < countColumn; j++)
-                            matrix[i, j] = double.Parse(row[j], CultureInfo.InvariantCulture);
+                            matrix[i, j] = double.Parse(row[j]);
                     }
                 }
                 return matrix;

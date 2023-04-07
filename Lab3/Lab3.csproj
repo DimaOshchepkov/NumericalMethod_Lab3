@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Solver\SupportClasses\IterationMethods\SeidelMethod.cs" />
     <Compile Include="Solver\SupportClasses\IterationMethods\IIterationMethod.cs" />
     <Compile Include="MatrixReaders\IReader.cs" />
     <Compile Include="Metrics\ChebyshevMetric.cs" />
