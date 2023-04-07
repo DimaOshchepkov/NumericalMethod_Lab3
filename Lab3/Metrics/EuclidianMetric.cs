@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    class ChebyshevMetric : IMetric
+    class EuclidianMetric : IMetric
     {
         double IMetric.GetDistance(double[] x1, double[] x2)
         {
-            double max = 0;
+            double sum = 0;
             for (int i = 0; i < x1.Length; i++)
             {
-                max = Math.Max(x1[i] - x2[i], max);
+                sum += Math.Pow(x1[i] - x2[i], 2);
             }
 
-            return max;
+            return Math.Sqrt(sum);
+        }
+
+        public override string ToString()
+        {
+            return "EuclidianMetric";
         }
     }
 }

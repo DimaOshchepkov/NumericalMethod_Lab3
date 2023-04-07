@@ -8,6 +8,6 @@ namespace Lab3
 {
     interface ISolver
     {
-
+        double[] GetSolve(double[,] matrix, double eps);
     }
 }

@@ -18,5 +18,10 @@ namespace Lab3
 
             return sum;
         }
+
+        public override string ToString()
+        {
+            return "ManhattanMetric";
+        }
     }
 }

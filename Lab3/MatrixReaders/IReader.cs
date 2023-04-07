@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    class SolverSimpleIter
+    internal interface IReader
     {
-        
+        double[,] Read();
     }
 }
