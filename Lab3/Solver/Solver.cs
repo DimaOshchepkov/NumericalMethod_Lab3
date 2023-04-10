@@ -23,7 +23,7 @@ namespace Lab3
             for (int i = 0; i < metricFactory.ExistMetric.Length && alpha >= 1; i++)
             {
                 metric = metricFactory.GetMetric(metricFactory.ExistMetric[i]);
-                alpha = (new GetterAlpha(metric)).GetAlpha(mapping);
+                alpha = getterAlpha.GetAlpha(mapping, metric);
             }
 
             if (alpha >= 1)
@@ -41,7 +41,7 @@ namespace Lab3
 
         MetricFactory metricFactory = new MetricFactory();
         IMetric metric;
-        GetterAlpha getterAlpha;
+        GetterAlpha getterAlpha = new GetterAlpha();
         GetterMapping getterMapping = new GetterMapping();
         IIterationMethod iterationMethod;
     }

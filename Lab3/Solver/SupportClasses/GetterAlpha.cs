@@ -10,13 +10,10 @@ namespace Lab3
     {
 
         IMetric metric;
-        public GetterAlpha(IMetric metric)
-        {
-            this.metric = metric;
-        }
 
 
-        public double GetAlpha(double[,] matrix)
+
+        public double GetAlpha(double[,] matrix, IMetric metric)
         {
             if (metric is ChebyshevMetric)
             {
